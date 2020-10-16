@@ -26,3 +26,11 @@ Provide a payment url to SDK.
 AtomeSDK.setPaymentUrl(url)
 ```
 
+## Notes
+
+Dependent libraries and versions used by the SDK
+
+```kotlin 
+// kotlin
+"org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10"
+```
