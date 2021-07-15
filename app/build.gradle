@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     signingConfigs {
         config {
-            storeFile file('/Users/doublewei/Desktop/AtomeMerchantDemo/demo.jks')
+            storeFile file('/Users/doublewei/Desktop/AtomeMerchantDemo-Android/demo.jks')
             storePassword 'a123456'
             keyAlias 'demo'
             keyPassword 'a123456'
@@ -28,7 +28,7 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.config
+            signingConfig signingConfigs.config
         }
     }
 }

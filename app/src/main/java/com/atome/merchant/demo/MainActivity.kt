@@ -3,6 +3,7 @@ package com.atome.merchant.demo
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.atome.sdk.AtomeSDK
 import com.google.gson.Gson
@@ -49,13 +50,20 @@ class MainActivity : AppCompatActivity() {
                 override fun onResponse(call: Call, response: Response) {
                     runOnUiThread {
                         progressBar.visibility = View.GONE
-                        responseBean = Gson().fromJson(
-                            response.body!!.string(),
-                            ResponseBean::class.java
-                        )
-
-                        tvResult.text = responseBean.toString()
+                        val result = runCatching {
+                            response.body?.apply {
+                                responseBean = Gson().fromJson(
+                                    this.toString(),
+                                    ResponseBean::class.java
+                                )
+                                tvResult.text = responseBean.toString()
+                            }
+                        }
                         Log.i(TAG, "responseBean $responseBean")
+
+                        if (result.isFailure)
+                            Toast.makeText(this@MainActivity, result.exceptionOrNull()?.toString(), Toast.LENGTH_SHORT).show()
+
                     }
 
                 }
