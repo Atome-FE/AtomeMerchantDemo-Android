@@ -42,7 +42,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    implementation 'com.atome.sdk:atome-merchant-sdk:1.0.4'
+    implementation 'io.github.atome-fe:merchant-sdk:1.0.6'
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
