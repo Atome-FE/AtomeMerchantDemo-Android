@@ -1,6 +1,8 @@
 package com.atome.merchant.demo
 
-data class ResponseBean(val code: String, val message: String, val data: DataBean)
+import java.io.Serializable
+
+data class ResponseBean(val code: String, val message: String, val data: DataBean) : Serializable
 data class DataBean(
     val referenceId: String,
     val currency: String,
@@ -13,4 +15,4 @@ data class DataBean(
     val merchantReferenceId: String,
     val appPaymentUrl: String,
     val extra: String
-)
+) : Serializable

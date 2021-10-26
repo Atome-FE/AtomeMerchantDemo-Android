@@ -52,3 +52,5 @@
 }
 
 -keep public class com.atome.merchant.demo.**{*;}
+
+-keep class * implements java.io.Serializable { *; }
