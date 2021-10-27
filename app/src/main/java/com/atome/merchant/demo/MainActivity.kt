@@ -3,7 +3,6 @@ package com.atome.merchant.demo
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.atome.sdk.AtomeSDK
 import com.google.gson.Gson
@@ -12,6 +11,9 @@ import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import okio.IOException
+import com.readystatesoftware.chuck.ChuckInterceptor
+
+import okhttp3.OkHttpClient
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +24,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         etUrl.setText(scheme_atomedemo)
-        val client = OkHttpClient()
+        val client: OkHttpClient = OkHttpClient.Builder()
+            .addInterceptor(ChuckInterceptor(this.applicationContext))
+            .build()
+
 
         btnRequest.setOnClickListener {
             progressBar.visibility = View.VISIBLE
@@ -49,21 +54,16 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call, response: Response) {
                     runOnUiThread {
-                        progressBar.visibility = View.GONE
-                        val result = runCatching {
-                            response.body?.apply {
-                                responseBean = Gson().fromJson(
-                                    this.toString(),
-                                    ResponseBean::class.java
-                                )
-                                tvResult.text = responseBean.toString()
-                            }
-                        }
+                       runCatching {
+                           progressBar.visibility = View.GONE
+                           responseBean = Gson().fromJson(
+                               response.body!!.string(),
+                               ResponseBean::class.java
+                           )
+
+                           tvResult.text = responseBean.toString()
+                       }
                         Log.i(TAG, "responseBean $responseBean")
-
-                        if (result.isFailure)
-                            Toast.makeText(this@MainActivity, result.exceptionOrNull()?.toString(), Toast.LENGTH_SHORT).show()
-
                     }
 
                 }
