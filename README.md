@@ -36,5 +36,5 @@ Dependent libraries and versions used by the SDK
 
 ```kotlin 
 // kotlin
-"org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10"
+"org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0"
 ```
