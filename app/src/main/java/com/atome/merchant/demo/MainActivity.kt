@@ -3,10 +3,13 @@ package com.atome.merchant.demo
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.atome.sdk.AtomeSDK
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -19,11 +22,21 @@ import okhttp3.OkHttpClient
 class MainActivity : AppCompatActivity() {
 
     var responseBean: ResponseBean? = null
+    private lateinit var etUrl: EditText
+    lateinit var btnJump: Button
+    lateinit var btnRequest: Button
+    lateinit var progressBar: ProgressBar
+    lateinit var tvResult: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        btnRequest = findViewById(R.id.btnRequest)
+        progressBar = findViewById(R.id.progressBar)
+        tvResult = findViewById(R.id.tvResult)
+        btnJump = findViewById(R.id.btnJump)
+        etUrl = findViewById(R.id.etUrl)
         etUrl.setText(scheme_atomedemo)
+
         val client: OkHttpClient = OkHttpClient.Builder()
             .addInterceptor(ChuckInterceptor(this.applicationContext))
             .build()
