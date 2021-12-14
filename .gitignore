@@ -6,8 +6,6 @@
 .DS_Store
 /build
 /captures
-.externalNativeBuild
-.cxx
 !.gitkeep
 *.orig
 app/build/
