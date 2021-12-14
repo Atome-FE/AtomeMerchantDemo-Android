@@ -1,5 +1,6 @@
 package com.atome.merchant.demo
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -88,6 +89,10 @@ class MainActivity : AppCompatActivity() {
             responseBean?.data?.appPaymentUrl?.let {
                 AtomeSDK.setPaymentUrl(it)
             }
+        }
+
+        findViewById<Button>(R.id.open_webView).setOnClickListener {
+            startActivity(Intent(this, WebViewActivity::class.java))
         }
     }
 

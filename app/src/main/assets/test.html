@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>H5-input标签上传文件</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+<input type="file" accept="image/*" capture="camera" multiple onchange="uploadImg()">
+<img src="" alt="image preview" width="400" height="400" id="previewImage">
+
+<script type="text/javascript">
+            function uploadImg(event) {
+                var e = window.event || event;
+                var oFile = e.target.files[0];
+                //console.log(oFile);
+                var imgMaxSize = 1024 * 1024 * 4; //4MB
+                // 限制文件类型
+                if(['jpeg', 'png', 'gif', 'jpg'].indexOf(oFile.type.split("/")[1]) < 0) {
+                    alert("仅可以上传图片格式文件");
+                    return;
+                }
+                var data=new FormData();
+                data.append("filesData",oFile);
+                console.log(previewImage,oFile);
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    var txt = event.target.result;
+                    previewImage.src = txt;
+                };
+                reader.readAsDataURL(oFile);
+<!--                $.post("约定地址",data,function(result){-->
+<!--                    console.log(result);-->
+<!--                })-->
+            }
+
+
+
+
+</script>
+</body>
+</html>

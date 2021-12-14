@@ -3,4 +3,6 @@
     <string name="input_payment_result_url">Input payment Result Url</string>
     <string name="jump_apaylater">Open Atome</string>
     <string name="request">Request Order</string>
+    <string name="openurl">openUrl</string>
+    <string name="open_webview">open webView</string>
 </resources>
