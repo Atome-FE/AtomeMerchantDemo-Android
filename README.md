@@ -9,7 +9,7 @@ Atome Merchant Android Demo
 Add the dependency in your `build.gradle` file. 
 
 ```groovy
-implementation 'io.github.atome-fe:merchant-sdk:1.1.0'
+implementation 'io.github.atome-fe:merchant-sdk:1.1.1'
 ```
 
 ## Usage
@@ -63,5 +63,5 @@ Dependent libraries and versions used by the SDK
 ```kotlin 
 // kotlin
 "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0"
-'androidx.activity:activity-ktx:1.4.0'
+'androidx.activity:activity-ktx:1.3.1'
 ```
