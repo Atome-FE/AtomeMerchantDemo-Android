@@ -9,7 +9,7 @@ Atome Merchant Android Demo
 Add the dependency in your `build.gradle` file. 
 
 ```groovy
-implementation 'io.github.atome-fe:merchant-sdk:1.1.1'
+implementation 'io.github.atome-fe:merchant-sdk:1.2.0'
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ implementation 'io.github.atome-fe:merchant-sdk:1.1.1'
 1. In your application code, Init the Atome SDK.
 
 ```kotlin
-AtomeSDK.init(application)
+AtomeSDK.init(applicationContext)
 ```
 2. Check whether the atome APP is installed.
 
