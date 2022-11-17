@@ -17,17 +17,33 @@ implementation 'io.github.atome-fe:merchant-sdk:1.2.0'
 1. In your application code, Init the Atome SDK.
 
 ```kotlin
+//Use kotlin language call
 AtomeSDK.init(applicationContext)
+```
+```java
+// Use java language call
+AtomeSDK.INSTANCE.init(applicationContext)
 ```
 2. Check whether the atome APP is installed.
 
 ```kotlin
+//Use kotlin language call
 AtomeSDK.isInstalledAtomeApp()
+```
+```java
+// Use java language call
+AtomeSDK.INSTANCE.isInstalledAtomeApp()
 ```
 3. Provide a payment url to SDK.
 
 ```kotlin
+//Use kotlin language call
 AtomeSDK.setPaymentUrl(url)
+```
+
+```java
+//Use java language call
+AtomeSDK.INSTANCE.setPaymentUrl(url)
 ```
 ##
 
