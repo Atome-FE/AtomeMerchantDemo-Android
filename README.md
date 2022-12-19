@@ -4,6 +4,8 @@ Atome Merchant Android Demo
 
 ## Integration
 
+- If your project needs Java implementation, please see [Java version](readme/README-java.md).
+
 ## Setup
 
 Add the dependency in your `build.gradle` file. 
