@@ -1,6 +1,5 @@
 package com.atome.merchant.demo
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -15,7 +14,6 @@ import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import okio.IOException
-import com.readystatesoftware.chuck.ChuckInterceptor
 
 import okhttp3.OkHttpClient
 
@@ -39,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         etUrl.setText(scheme_atomedemo)
 
         val client: OkHttpClient = OkHttpClient.Builder()
-            .addInterceptor(ChuckInterceptor(this.applicationContext))
             .build()
 
 
@@ -87,13 +84,10 @@ class MainActivity : AppCompatActivity() {
 
         btnJump.setOnClickListener {
             responseBean?.data?.appPaymentUrl?.let {
-                AtomeSDK.setPaymentUrl(it)
+                AtomeSDK.handleUrl(it)
             }
         }
 
-        findViewById<Button>(R.id.open_webView).setOnClickListener {
-            startActivity(Intent(this, WebViewActivity::class.java))
-        }
     }
 
     companion object {
