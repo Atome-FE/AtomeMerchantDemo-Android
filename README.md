@@ -11,7 +11,7 @@ Atome Merchant Android Demo
 Add the dependency in your `build.gradle` file. 
 
 ```groovy
-implementation 'io.github.atome-fe:merchant-sdk:1.2.0'
+implementation 'io.github.atome-fe:merchant-sdk:1.5.1'
 ```
 
 ## Usage
@@ -30,22 +30,22 @@ AtomeSDK.INSTANCE.init(applicationContext)
 
 ```kotlin
 //Use kotlin language call
-AtomeSDK.isInstalledAtomeApp()
+AtomeSDK.isAtomeInstalled()
 ```
 ```java
 // Use java language call
-AtomeSDK.INSTANCE.isInstalledAtomeApp()
+AtomeSDK.INSTANCE.isAtomeInstalled()
 ```
 3. Provide a payment url to SDK.
 
 ```kotlin
 //Use kotlin language call
-AtomeSDK.setPaymentUrl(url)
+AtomeSDK.handleUrl(url)
 ```
 
 ```java
 //Use java language call
-AtomeSDK.INSTANCE.setPaymentUrl(url)
+AtomeSDK.INSTANCE.handleUrl(url)
 ```
 ##
 
@@ -80,6 +80,6 @@ Dependent libraries and versions used by the SDK
 
 ```kotlin 
 // kotlin
-"org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0"
-'androidx.activity:activity-ktx:1.3.1'
+"org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
+'androidx.activity:activity-ktx:1.4.0'
 ```
