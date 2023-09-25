@@ -9,7 +9,7 @@ Atome Merchant Android Demo
 Add the dependency in your `build.gradle` file. 
 
 ```groovy
-implementation 'io.github.atome-fe:merchant-sdk-java:1.2.0'
+implementation 'io.github.atome-fe:merchant-sdk-java:1.5.0'
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ AtomeSDK.getInstance().init(applicationContext);
 2. Check whether the atome APP is installed.
 
 ```java
-AtomeSDK.getInstance().isInstalledAtomeApp();
+AtomeSDK.getInstance().isAtomeInstalled();
 ```
 3. Provide a payment url to SDK.
 
