@@ -93,6 +93,9 @@ class MainActivity : AppCompatActivity() {
                         // but you should replace the domain (either the staging or release domain).
                         responseBean?.data?.appPaymentUrl?.let {
                             appPaymentUrl = it
+                            domainMap[R.id.radioButtonSendbox] =
+                                URL(it).protocol + "://" + URL(it).host
+                            Log.i(TAG, "domainMap $domainMap")
                         }
                         tvResult.text = responseBean.toString()
                     }
